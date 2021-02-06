@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import WelcomeScreen from "./Screens/WelcomeScreen";
+import ItemExchangeScreen from "./Screens/ItemExchangeScreen";
+import ItemRequestScreen from "./Screens/ItemRequestScreen";
+import {AppTabNavigator} from "./Components/AppTabNavigator";
+import {createSwitchNavigator,createAppContainer} from "react-navigation";
 
 export default class App extends Component {
   render(){
     return(
-      <WelcomeScreen/>
+      <AppContainer/>
     )
   }
 }
@@ -18,3 +22,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const SwitchNavigator = createSwitchNavigator({
+  WelcomeScreen:{screen:WelcomeScreen},
+  AppTabNavigator:{screen:AppTabNavigator}
+})
+ 
+var AppContainer=createAppContainer(SwitchNavigator)
