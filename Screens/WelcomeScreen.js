@@ -20,7 +20,7 @@ export default class WelcomeScreen extends React.Component{
     userLogin=(emailId,password)=>{
         firebase.auth().signInWithEmailAndPassword(emailId,password)
         .then(()=>{
-            return Alert.alert("Secussesfully Logged in")
+            this.props.navigation.navigate("ExchangeItem")
         }).catch((error)=>{
             return Alert.alert(error.message)
         })
